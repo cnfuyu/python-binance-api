@@ -11,13 +11,14 @@ else:
 
 from .bind import bind_method, bind_ws_method
 from .models import Entry, Depth, Trade, AggregateTrade, Candlestick, Statistics, Price, Ticker, Order, Account, \
-                    DepthUpdateEvent, KLineEvent, AggregateTradeEvent, UserDataEvent
+                    Deposit, Withdraw, DepthUpdateEvent, KLineEvent, AggregateTradeEvent, UserDataEvent
 
 NO_ACCEPT_PARAMETERS = []
 
 class BinanceRESTAPI(object):
     host = "www.binance.com"
     base_path = "/api"
+    wapi_base_path = "/wapi"
     protocol = "https"
     api_name = "Binance"
 
@@ -164,6 +165,30 @@ class BinanceRESTAPI(object):
             accepts_parameters=["listen_key"],
             api_key_required=True,
             response_type="empty")
+
+    withdraw = bind_method(
+            path="/v1/withdraw.html",
+            method="POST",
+            accepts_parameters=["asset", "address", "amount", "name", "recv_window", "timestamp"],
+            signature=True,
+            response_type="entry",
+            root_class=Entry)
+
+    deposit_history = bind_method(
+            path="/v1/getDepositHistory.html",
+            method="POST",
+            accepts_parameters=["asset", "status", "start_time", "end_time", "recv_window", "timestamp"],
+            signature=True,
+            response_type="entry",
+            root_class=Deposit)
+
+    withdraw_history = bind_method(
+            path="/v1/getWithdrawHistory.html",
+            method="POST",
+            accepts_parameters=["asset", "status", "start_time", "end_time", "recv_window", "timestamp"],
+            signature=True,
+            response_type="entry",
+            root_class=Withdraw)
 
 class BinanceWebSocketAPI(object):
     host = "stream.binance.com"

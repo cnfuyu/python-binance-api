@@ -17,10 +17,16 @@ class Request(object):
     def __init__(self, api):
         self.api = api
 
+    def _is_wapi(self, path):
+        return path.endswith('.html')
+
+    def _get_base_path(self, path):
+        return self.api.wapi_base_path if self._is_wapi(path) else self.api.base_path
+
     def _full_url(self, path):
         return "%s://%s%s%s" % (self.api.protocol,
                                 self.api.host,
-                                self.api.base_path,
+                                self._get_base_path(path),
                                 path)
                                 
     def _full_url_with_params(self, path, params):
@@ -45,7 +51,7 @@ class Request(object):
         url = body = None
         headers = {}
 
-        if method == "GET":
+        if method == "GET" or self._is_wapi(path):
             url = self._full_url_with_params(path, params)
         else:
             url = self._full_url(path) 

@@ -152,6 +152,29 @@ for trade in trades:
     print trade.id, trade.price, trade.qty
 ```
 
+#### submit a withdraw request
+```python
+withdraw = rest_client.withdraw(asset="BNB", address="address", amount=0.1, name="test")
+
+print withdraw.success
+```
+
+#### fetch deposit history
+```python
+deposit_history = rest_client.deposit_history()
+
+for deposit in deposit_history:
+    print deposit.asset, deposit.amount, deposit.insert_time, deposit.status
+```
+
+#### fetch withdraw history
+```python
+withdraw_history = rest_client.withdraw_history()
+
+for withdraw in withdraw_history:
+    print withdraw.asset, withdraw.address, withdraw.amount, withdraw.apply_time, withdraw.status
+```
+
 #### start a new user data stream
 ```python
 stream = rest_client.start_user_data_stream()

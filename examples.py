@@ -117,6 +117,19 @@ rest_client.keepalive_user_data_stream(stream.listen_key)
 # close out a user data stream
 rest_client.close_user_data_stream(stream.listen_key)
 
+# withdraw
+withdraw = rest_client.withdraw(asset="BNB", address="address", amount=0.1, name="test")
+print withdraw.success
+
+# deposit history
+deposit_history = rest_client.deposit_history()
+for deposit in deposit_history:
+    print deposit.asset, deposit.amount, deposit.insert_time, deposit.status
+
+# withdraw history
+withdraw_history = rest_client.withdraw_history()
+for withdraw in withdraw_history:
+    print withdraw.asset, withdraw.address, withdraw.amount, withdraw.apply_time, withdraw.status
 
 #---------------------------WebSocket API Examples---------------------------
 

@@ -235,7 +235,6 @@ class Statistics(ApiModel):
 
     def __unicode__(self):
         return "Statistics: %s-%s" % (self.first_id, self.last_id)
-    
 
 class Price(ApiModel):
     def __init__(self, price, **kwargs):
@@ -323,6 +322,47 @@ class Account(ApiModel):
 
     def __unicode__(self):
         return "Account"
+
+class Deposit(ApiModel):
+    def __init__(self, *args, **kwargs):
+        for key, value in six.iteritems(kwargs):
+            setattr(self, key, value)
+
+    @classmethod
+    def object_from_dictionary(cls, entry):
+        deposit_list = []
+        for deposit in entry["depositList"]:
+            new_deposit = Deposit()
+            new_deposit.insert_time = deposit["insertTime"]
+            new_deposit.amount = deposit["amount"]
+            new_deposit.asset = deposit["asset"]
+            new_deposit.status = deposit["status"]
+            deposit_list.append(new_deposit)
+        return deposit_list
+
+    def __unicode__(self):
+        return "Deposit"
+
+class Withdraw(ApiModel):
+    def __init__(self, *args, **kwargs):
+        for key, value in six.iteritems(kwargs):
+            setattr(self, key, value)
+
+    @classmethod
+    def object_from_dictionary(cls, entry):
+        withdraw_list = []
+        for withdraw in entry["withdrawList"]:
+            new_withdraw = WithDraw()
+            new_withdraw.amount = withdraw["amount"]
+            new_withdraw.address = withdraw["address"]
+            new_withdraw.asset = withdraw["asset"]
+            new_withdraw.apply_time = withdraw["applyTime"]
+            new_withdraw.status = withdraw["status"]
+            withdraw_list.append(new_withdraw)
+        return withdraw_list
+
+    def __unicode__(self):
+        return "Withdraw"
 
 class DepthUpdateEvent(ApiModel):
     EVENT_TYPE = "depthUpdate" 
