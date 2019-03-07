@@ -5,8 +5,8 @@ from binance.client import BinanceRESTAPI, BinanceWebSocketAPI
 from binance.models import DepthCache
 
 
-api_key = "vKoBnLGIzyr3jprxHiC4cB0mDk8Eq3kwou4dKVgT1cZiDGa2CxW38LjmsiC8ugvX"
-secret_key = "v13nLfJ7ziQhIRFFDwYRzUDPfb873rrxOBvPNluhJ3u7ZJdEQ0R8DmTub9XNEK2I"
+api_key = "YOUR API KEY"
+secret_key = "YOUR SECRET KEY"
 
 #---------------------------REST API Examples---------------------------
 
