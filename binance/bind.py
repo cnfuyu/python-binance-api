@@ -15,7 +15,7 @@ def underline_to_camel(underline_format):
     camel_format = ''
     if isinstance(underline_format, str):
         splits = underline_format.split('_')
-        camel_format += splits[0]
+        camel_format += splits[0].lower()
         for _s_ in splits[1:]:
             camel_format += _s_.capitalize()
     return camel_format
