@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+from six.moves.urllib.parse import urlencode
 import logging
 import requests
-import websocket
-import simplejson
 import ssl
 import six
-from six.moves.urllib.parse import urlencode
+import websockets
+import websocket
+import simplejson
 
 from events import Events
 
@@ -99,7 +100,8 @@ class WebSocket(Events):
         return url
 
     def run_forever(self, url):
+        websocket.enableTrace(True)
         self.ws = websocket.WebSocketApp(url,
-                                         on_message=self._on_message,
-                                         on_error=self._on_error)
+                                         on_message= lambda ws,msg: self._on_message(ws, msg),
+                                         on_error= lambda ws,msg: self._on_error(ws, msg))
         self.ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
