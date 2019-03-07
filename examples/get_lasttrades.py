@@ -2,8 +2,6 @@
 # coding=utf-8
 
 from binance.client import BinanceRESTAPI, BinanceWebSocketAPI
-from binance.models import DepthCache
-
 
 api_key = "YOUR API KEY"
 secret_key = "YOUR SECRET KEY"
