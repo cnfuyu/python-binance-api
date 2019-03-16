@@ -1,6 +1,8 @@
 # python-binance-api
 A Python 2/3 client for the Binance REST and WebSocket APIs  https://github.com/binance-exchange/binance-official-api-docs
 
+info: this project does NOT use ´Twisted´, so you are not forced to daemonize your bot/app with twistd and can use other daemonizer tools.
+
 python-binance-api return an object that parsed from `json` for each method, set `return_json=True` get the original API response.
 
 #### Installation
