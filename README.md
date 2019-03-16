@@ -5,7 +5,8 @@ python-binance-api return an object that parsed from `json` for each method, set
 
 #### Installation
 ```
-download latest release from https://github.com/unicorn-data-analysis/python-binance-api/releases and put the binance directory into your project...
+download latest release from https://github.com/unicorn-data-analysis/python-binance-api/releases and put 
+the binance directory into your project...
 ```
 #### Requires
   * requests
