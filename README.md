@@ -1,5 +1,5 @@
 # OUT OF DATE
-NO FURTHER DEVELOPMENT, please move to https://github.com/unicorn-data-analysis/unicorn-binance-websocket-api
+NO FURTHER DEVELOPMENT, please move to https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api
 
 # python-binance-api
 A Python 2/3 client for the Binance REST and WebSocket APIs  https://github.com/binance-exchange/binance-official-api-docs
