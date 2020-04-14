@@ -1,11 +1,15 @@
+# OUT OF DATE
+NO FURTHER DEVELOPMENT, please move to https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api
+
 # python-binance-api
-A Python 2/3 client for the Binance REST and WebSocket APIs  https://www.binance.com/restapipub.html
+A Python 2/3 client for the Binance REST and WebSocket APIs  https://github.com/binance-exchange/binance-official-api-docs
 
 python-binance-api return an object that parsed from `json` for each method, set `return_json=True` get the original API response.
 
 #### Installation
 ```
-pip install python-binance-api
+download latest release from https://github.com/unicorn-data-analysis/python-binance-api/releases and put 
+the binance directory into your project...
 ```
 #### Requires
   * requests

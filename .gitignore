@@ -6,3 +6,4 @@ build/
 *.DS_Store
 *.swp
 test.py
+.idea
